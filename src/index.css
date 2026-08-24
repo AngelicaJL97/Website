@@ -1,0 +1,312 @@
+/* ===========================
+   ROOT SYSTEM
+   =========================== */
+:root {
+  /* Brand Colors */
+  --color-burnt-orange: #fc6c26;
+  --color-vanilla: #fff4d6;
+
+  /* Backgrounds */
+  --bg-main: var(--color-vanilla);
+  --bg-card: #ffffff;
+  --bg-dark: #2a1a12;
+
+  /* Text */
+  --text-main: #1a1a1a;
+  --text-light: #555555;
+  --text-invert: #ffffff;
+
+  /* Accents */
+  --accent-primary: var(--color-burnt-orange);
+  --accent-secondary: #ffb98a;
+  --accent-neutral: #e8d9c2;
+
+  /* Borders & Shadows */
+  --border-color: rgba(0, 0, 0, 0.08);
+  --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.05);
+
+  /* Typography */
+  --font-main: "Inter", system-ui, sans-serif;
+  --font-size-base: 16px;
+  --font-size-h1: 2.4rem;
+  --font-size-h2: 1.8rem;
+  --font-size-h3: 1.3rem;
+
+  /* Spacing & Radius */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 2rem;
+  --space-lg: 3rem;
+
+  /* Transitions */
+  --transition-fast: 0.15s ease;
+  --transition-medium: 0.3s ease;
+}
+
+/* ===========================
+   GLOBAL
+   =========================== */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-main);
+  background: var(--bg-main);
+  color: var(--text-main);
+  font-size: var(--font-size-base);
+  line-height: 1.6;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* ===========================
+   SELECTION COLORS
+   =========================== */
+::selection,
+h1::selection,
+h2::selection {
+  background: rgba(252, 108, 38, 0.6);
+  color: #241623;
+}
+
+/* ===========================
+   HEADER
+   =========================== */
+.header {
+  background: var(--bg-card);
+  padding: var(--space-md) var(--space-lg);
+  box-shadow: var(--shadow-soft);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border-color);
+  position: relative;
+}
+
+.logo {
+  font-size: var(--font-size-h2);
+  font-weight: 600;
+  margin: 0;
+  color: var(--color-burnt-orange);
+}
+
+/* ===========================
+   NAVIGATION (DESKTOP)
+   =========================== */
+.nav {
+  display: flex;
+  gap: var(--space-sm);
+}
+
+.nav button {
+  background: none;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  color: var(--text-light);
+  transition: color var(--transition-fast);
+}
+
+.nav button:hover {
+  color: var(--accent-primary);
+}
+
+/* ===========================
+   HAMBURGER ICON (MOBILE)
+   =========================== */
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  z-index: 1000;
+}
+
+.hamburger svg {
+  width: 32px;
+  height: 32px;
+}
+
+/* ===========================
+   MAIN CONTENT
+   =========================== */
+.content {
+  flex: 1;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: var(--space-lg) var(--space-md);
+}
+
+/* ===========================
+   SECTIONS
+   =========================== */
+.section {
+  background: var(--bg-card);
+  padding: var(--space-lg);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-soft);
+  margin-bottom: var(--space-lg);
+  border-left: 10px solid var(--color-burnt-orange);
+}
+
+.section h2 {
+  font-size: var(--font-size-h2);
+  margin-top: 0;
+  margin-bottom: var(--space-sm);
+  color: var(--color-burnt-orange);
+}
+
+.section ul {
+  padding-left: var(--space-md);
+}
+
+.section li {
+  margin-bottom: var(--space-xs);
+}
+
+/* ===========================
+   LINKS
+   =========================== */
+.section a {
+  color: var(--accent-primary);
+  text-decoration: none;
+  font-weight: 500;
+  position: relative;
+}
+
+.section a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 2px;
+  background: var(--accent-primary);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s ease;
+}
+
+.section a:hover::after {
+  transform: scaleX(1);
+}
+
+/* ===========================
+   BUTTONS
+   =========================== */
+button,
+a.button {
+  background: var(--accent-primary);
+  color: var(--text-invert);
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-sm);
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background var(--transition-fast), transform var(--transition-fast);
+}
+
+button:hover,
+a.button:hover {
+  background: var(--accent-secondary);
+  transform: translateY(-2px);
+}
+
+/* ===========================
+   FOOTER
+   =========================== */
+.footer {
+  text-align: center;
+  padding: var(--space-md);
+  background: var(--bg-card);
+  box-shadow: var(--shadow-soft);
+  margin-top: auto;
+  font-size: 0.9rem;
+  color: var(--text-light);
+  border-top: 1px solid var(--border-color);
+}
+
+/* ===========================
+   RESPONSIVE NAVIGATION
+   =========================== */
+@media (max-width: 900px) {
+
+  /* Hide desktop nav */
+  .nav {
+    display: none;
+  }
+
+  /* Show hamburger */
+  .hamburger {
+    display: block;
+  }
+
+  /* Mobile menu */
+  .nav.open {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 80px;
+    right: 20px;
+    background: var(--bg-card);
+    padding: var(--space-md);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-soft);
+    border-left: 6px solid var(--accent-primary);
+    gap: var(--space-sm);
+    z-index: 999;
+  }
+
+  .nav.open button {
+    font-size: 1.1rem;
+    color: var(--text-main);
+    text-align: left;
+    padding: var(--space-xs) 0;
+  }
+}
+
+/* ===========================
+   RESPONSIVE CONTENT
+   =========================== */
+@media (max-width: 700px) {
+  .content {
+    padding: var(--space-md);
+  }
+
+  .section {
+    padding: var(--space-md);
+    border-left-width: 6px;
+  }
+
+  .section h2 {
+    font-size: 1.5rem;
+  }
+
+  p,
+  li {
+    font-size: 0.95rem;
+  }
+
+  .section a {
+    font-size: 1rem;
+  }
+}
+
+/* ===========================
+   RESPONSIVE LOGO
+   =========================== */
+@media (max-width: 500px) {
+  .logo {
+    font-size: 1.2rem;
+    line-height: 1.3;
+    max-width: 200px;
+  }
+}
